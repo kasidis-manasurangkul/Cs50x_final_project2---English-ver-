@@ -1,0 +1,30 @@
+{% extends "layout4.html" %} 
+{% block title %} user_confirm {% endblock %}
+{% block link %} /admin_main {% endblock %}
+{% block main %}
+
+<div class="box15" style="margin-left: auto; margin-right: auto; text-align: center; height: 70px !important;">
+    <span class="head3" style="vertical-align: middle; ">Notification</span>
+</div>
+<hr class="spliter1 my-0">
+<div style="background-color: white; width: 990px;">
+    <div class="box26">
+        <label class="head10">Search:</label>
+        <div style="display:inline-block; margin-left: 10px;">
+            <input type="text" autocomplete="off" class="formbox11 head6"
+                placeholder="For searching Inusured and LPN" id="search">
+        </div>
+    </div>
+</div>
+
+
+<div style="margin-bottom: 2000px; text-align: center;" id="customer">
+
+</div>
+<script>
+    window.addEventListener('load', (event) => {
+        get_customer_notification('insurance')
+        search_notification()
+    });
+</script>
+{% endblock %}

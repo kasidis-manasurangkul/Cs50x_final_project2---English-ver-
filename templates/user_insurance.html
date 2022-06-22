@@ -1,0 +1,95 @@
+{% extends "layout3.html" %} 
+{% block title %} user_insurance {% endblock %} 
+{% block link %} / {% endblock %}
+{% block main %}
+    <center>   
+        <div class="box15" style="display: inline-block;">
+        <div class="box16" style="display: inline-block;">
+            <span class="head3" style="vertical-align: middle;">Your Insurance</span>
+        </div>
+        <span id= "open">
+            <div class="box17" style="display: inline-block; position: relative;">
+                <img class="img3" src="/static/bag_buy_cart_market_shop_shopping_tote_icon_123191.png">
+                <div class="circle1" style="vertical-align: middle; padding-bottom: 5px;">
+                    <span id="insurance_cart" class="headtext"></span>
+                </div>
+            </div>
+        </span>
+        <div class="error_noti1" id="error">You already had this insurance in your cart</div>
+        <div class="modal-container" id="modal_container">
+            <div class="outmodal1" id="close2"></div>
+            <div class="modal1" style="text-align: left; position: absolute;">
+                <span class="head5">Cart</span>
+                <img class="img4" src="/static/windowclose_104378.png" id="close1">
+                <hr class="spliter3">
+                <div id="product"></div>
+                <div id="total"></div>
+                <a href="/user_renew">
+                    <button type="button" class="btn color-custom formbox6 head8 rounded2" style="width: 122px; margin-left: 127px;">Checkout</button>
+                </a>
+            </div>
+        </div>
+        </div>
+        <hr class="spliter1 mt-1 mx-0" />
+    </center>
+    <center>
+    <div class= "box13"style="display: inline-block;">
+        <div class="box14" style="display: inline-block; margin-right: 80px; text-align: left;">
+        <span class= "head2 underline">{{name[0]}} {{name[1]}}</span>
+        </div>
+        <div class="box14" style="display: inline-block; margin-left: 80px; margin-top: 5px; text-align: right;">
+        <a class= "head4 underline" href="/user_history/{{ name[3] }}" onclick="h({{histories}})">Renewal History</a>
+        </div>
+    </div>  
+
+    {% if cars != None %} {% for insurance in insurances %}
+        <div class="box9 board2 m-2 rounded1" >
+        <div class="box10 locate2" style="display: inline-block;">
+            <span class="head10"> Type: {{insurance[0]}} </span>
+            <br>
+            <span class="head10"> Price: {{insurance[2] | baht}}</span>
+            <br>
+            <span class="head10"> Discount: {% if insurance[4] != 0 %}{{insurance[4] | baht}}{% endif %}</span>
+        </div>
+        <div class="box11 locate2" style="display: inline-block;">
+            <span class="head10"> Sum Insured: {{insurance[1] | baht}}</span>
+            <br>
+            <span class="head10"> Renewal Date: {{insurance[3]}}</span>
+            <br>
+            <span class="head10 font-weight-bold"> Total price: {{(insurance[2] - insurance[4]) | baht}}</span>
+        </div>
+        <div class="box12" style="display: inline-block;">
+            {% if insurance[7] == '-1'%}
+                <button type="button" class="btn color-custom formbox5 head7 rounded2" onclick="addcart(car_id = {{ insurance[5] }},
+                                                                                                        id = {{ insurance[6] }},
+                                                                                                        type = '{{ insurance[0] }}',
+                                                                                                        effective_date = '{{ insurance[3] }}',
+                                                                                                        max_price = {{ insurance[2]}},
+                                                                                                        discount = {{ insurance[4] }},
+                                                                                                        total_price = {{ (insurance[2] - insurance[4]) }},
+                                                                                                        sum_insure = {{ insurance[1] }},
+                                                                                                        brand = '{{ name[0] }}',
+                                                                                                        model = '{{ name[1] }}',
+                                                                                                        license = '{{ name[2] }}')">Renew</button> 
+            {% elif insurance[7] == '1' %}
+                <button type="button" class="btn complete color-custom formbox5 head7 rounded2">Complete</button>
+            {% elif insurance[7] == '0' %}
+                <button type="button" class="btn incomplete color-custom formbox5 head11 rounded2">Processing</button>
+            {% endif %}
+            
+        </div>
+        </div>
+
+    {% endfor %} {% endif %}
+    </center>
+    <div style="margin-bottom: 50px;"></div>
+    <script>
+        window.addEventListener('load', (event) => {
+                load()
+                modal()
+                cartlist()
+            });
+
+    </script>
+{% endblock %}
+

@@ -1,0 +1,103 @@
+{% extends "layout4.html" %} {% block title %} admin_create{% endblock %}
+{% block link %} /admin_main {% endblock %}
+{% block main %}
+<div class="tab">
+    <button class="tablinks" name="user_tab">Insured</button>
+    <button class="tablinks" name="insurance_tab" >Insurance</button>
+</div>
+<div class="tabcontent" id="username_car">
+    <div class="box4" style="display: inline-block;">
+        <p class="head10">Insured Information</p>
+    </div>
+    <div class="box5" style="display: inline-block; width: 427px !important; margin-left: 60px !important;">
+        <div id="user">
+            <label class="head10">Title:</label>
+            <input class="head13" style="border: 0.5px!;" id="name_title" type="text" autofocus><br>
+            <label class="head10" style="margin-right: 5px;">First name:</label>
+            <input class="head13" id="first_name" type="text" ><br>
+            <label class="head10">Last_name:</label>
+            <input class="head13" id="last_name" type="text"><br>
+            <label class="head10">Code:</label>
+            <input class="head13" id="code" type="text"><br>
+            <label class="head10">Mobile: </label>
+            <input class="head13" id="phone_number" type="text"><br>
+            <label class="head10">E-mail:</label>
+            <input class="head13" id="e_mail" type="text"><br>
+            <label class="head10">Username:</label>
+            <input class="head13" id="username" type="text"><br>
+            <label class="head10">Password:</label>
+            <input class="head13" id="hash_password" type="text" placeholder="At least 6 characters"><br>
+        </div>
+    </div>
+    <hr class="spliter1 my-0">
+
+    <div class="box4" style="display: inline-block;">
+        <p class="head10">Vehicle Information</p>
+    </div>
+    <div class="box5" style="display: inline-block; width: 427px !important; margin-left: 60px !important;">
+        <div id="parent_car">
+            <div id="car_creating" name="car" class="select_car">
+                <label style="margin-right: 5px;" class="head10">Brand:</label>
+                <input class="head13" style="border: 0.5px!;" name="brand" type="text">
+                <img src="/static/4105964-collapse-minus-reduce-remove_113927.png" class="img11" style="position:absolute; margin-top: 8px; margin-left: -347px;"
+                    onclick="del_clone('')">
+                <br>
+                <label class="head10" style="margin-right: 5px;">Model:</label>
+                <input class="head13" name="model" type="text"><br>
+                <label style="margin-right: 5px;" class="head10">LPN:</label>
+                <input class="head13" name="license_number" type="text"><br>
+                <br>
+            </div>
+            <!-- <img class="img11" onclick="del_clone('1');" src="/static/4105964-collapse-minus-reduce-remove_113927.png" style="position: absolute; margin-top: 8px; margin-left: -328px;"> -->
+        </div>
+        <img src="/static/4105962-add-expand-plus_113920 1.png" class="img9" style="margin-top: -30px; margin-left: 324px;"
+            onclick="clone('parent_car','car_creating')">
+    </div>
+    <div style="text-align: right;">
+        <button class="btn color-custom formbox5 head8 rounded2" type="button" style="margin-right: 5px; width: 128px; margin-bottom: 10px; display: inline-block;" onclick="get_user_car(); openCity('insurance_tab', 'insurance'); show_form('insurance');">Next</button>
+    </div>
+</div>
+
+<div class="tabcontent" id="insurance" name="spliter">
+    <div style="display: inline-block;">
+        <div class="box4" style="display: inline-block;">
+            <p class="head10">Insurance Information</p>
+        </div>
+        <div class="box5" style="display: inline-block; width: 600px;">
+            <div style="display: inline-block;" id="insurance_form" name ='insurance'>
+                
+            </div>
+        </div>
+        <!-- <img src="/static/4105962-add-expand-plus_113920 1.png" class="img9" style="margin-top: -30px; margin-left: 717px;"
+            onclick="insurance_clone('parent_insurance','insurance_creating')"> -->
+    </div>
+    <div style="text-align: right;">
+        <button class="btn color-custom formbox5 head8 rounded2" type="button"
+            style="margin-right: 5px; width: 128px; margin-bottom: 10px; display: inline-block;"
+            onclick="openCity('user_tab', 'username_car');">Previous</button>
+        <button class="btn color-custom formbox5 head8 rounded2" type="button"
+            style="margin-right: 5px; width: 128px; margin-bottom: 10px; display: inline-block;"
+            onclick="get_insurance();">Save</button>
+    </div>
+</div>
+
+<script>
+    openCity('user_tab', 'username_car')
+    if (performance.navigation.type == performance.navigation.TYPE_RELOAD) {
+            localStorage.removeItem("form");
+        }
+    function openCity(evt, cityName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace("active", "");
+        }
+        document.getElementById(cityName).style.display = "block";
+        document.getElementsByName(evt)[0].className += " active";
+    }
+</script>
+{% endblock %}

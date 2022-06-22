@@ -1,0 +1,53 @@
+{% extends "layout2.html" %}
+{% block title %} user_detail {% endblock %}
+{% block head %} Account Information {% endblock %}
+{% block link %} / {% endblock %}
+
+{% block main %}
+    <div>
+        <div class= "box4" style="display: inline-block;">
+            <p class = "head8">User Information</p>
+        </div>
+        <div class= "box5" style="display: inline-block;">
+            <p class = "head8 mb-2">First Name: {{user[0]}}  Last Name: {{user[1]}}</p>
+            <p class = "head8 mb-2">Mobile: {{user[2]}}</p>
+            <p class = "head8 mb-0">E-mail: {{user[3]}}</p>
+        </div>
+    </div>
+    <hr class= "spliter1 my-0">
+    <div>
+        <div class= "box4" style="display: inline-block;">
+            <p class = "head8">Change/Add<br> E-mail</p>
+        </div>
+        <div class= "box5" style="display: inline-block;">
+            <form action="/user_detail/change_email" method="post">
+                <div class="mb-0">
+                    <input type="text" class="head6 formbox3 board3 pl-1" name="email" placeholder="E-mail">
+                </div>
+                <button type="submit" name="email_button" class="btn color-custom mt-3 mb-2 formbox4 head9 rounded2">Done</button>
+            </form>
+        </div>
+    </div>
+    <hr class= "spliter1 my-0">    
+    <div>
+        <div class= "box4" style="display: inline-block;">
+            <p class = "head8">Change Password</p>
+        </div>
+        <div class= "box5" style="display: inline-block;">
+            <form action="/user_detail/change_password" method="post">
+                <div class="mb-2">
+                    <input type="password" class="head6 formbox3 board3 pl-1" name="password" placeholder="Old Password">
+                </div>
+                <div class="mb-2">
+                    <input type="password" class="head6 formbox3 board3 pl-1" name="new_password" placeholder="New Password">
+                </div>
+                <div class="mb-0">
+                    <input type="password" class="head6 formbox3 board3 pl-1" name="password_confirmation" placeholder="Confirm New Password">
+                </div>
+                <button type="submit" name="password_button" class="btn color-custom mt-3 mb-2 formbox4 head9 rounded2">Done</button>
+            </form>
+        </div>
+    </div>
+
+
+{% endblock %}

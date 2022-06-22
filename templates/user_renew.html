@@ -1,0 +1,112 @@
+{% extends "layout3.html" %}
+{% block title %} user_renew {% endblock %}
+{% block link %} / {% endblock %}
+{% block main %}
+<div class="box15" style="margin-left: auto; margin-right: auto; text-align: center;">
+    <span class="head3" style="vertical-align: middle; ">Renewal</span>
+</div>
+<hr class="spliter1 my-0">
+<div>
+    <div class="box4" style="display: inline-block;">
+        <p class="head10">Insured Information</p>
+    </div>
+    <div class="box5" style="display: inline-block;">
+        <span class="head10">Full Name: {{username[0]}} {{username[1]}}</span><br>
+        <span class="head10">Mobile: {{username[2]}}</span><br>
+        <span class="head10">E-mail: {{username[3]}}</span><br>
+    </div>
+    <a class="head4 underline" style="float: right; margin-right: 19px; margin-top: 123px;" href="/user_detail">Edit</a>
+</div>
+<hr class="spliter1 my-0">
+<div>
+    <div>
+        <div class="box4" style="display: inline-block;">
+            <p class="head10">Vehicle Information</p>
+        </div>
+        <div class="box22" id="renew_detail" style="display: inline-block;">
+    
+        </div>
+    </div>
+</div>
+<div>
+    <div class="box4" style="display: inline-block;">
+        <p class="head10">Payment Amount</p>
+    </div>
+    <div class="box5" style="display: inline-block;"  id= "payment_amount">
+
+    </div>
+</div>
+<hr class="spliter1 my-0">
+<div>
+    <div>
+        <div class="box25" style="display: inline-block;">
+            <p class="head10">Payment Amount</p>
+        </div>
+        <div class="box24" style="display: inline-block;">
+            <div class="head10">Account name:</div><br>
+            <div class="head10">Transfer from bank:</div><br>
+            <div class="head10" style= "margin-top: 18px;">Transfer Amount:</div><br>
+            <div class="head10">Payment Proof:</div><br>
+
+        </div>
+        <div class="box23" style="display: inline-block;">
+            <form action="/user_renew" method="post" enctype = "multipart/form-data">
+                <input required="required" type="text" id="name" name="name" class="head10 formbox3" placeholder="Account name"><br><br> 
+                <input required="required" type="radio" class="radio" id="bank" name="bank" value="124-4-20856-5" class="head10">
+                <img src="/static/BBL-LOGO 1.png" class="img7" style="display: inline-block;">
+                <label  class="head10" style="margin-top: -10px; display: inline-block; line-height: 29px;">
+                    xxxxxxxxxxxxxxxxxxx<br>
+                    xxxxxxxxxxxxxxxxxxxxxxxx<br>
+                </label>
+                <input required="required" type="text" id="amount" name="amount" class="head8 formbox3" style="margin-top: 19px;"placeholder="0.00"><br><br>
+                <input required="required" type="file" name="filename" id="real_file" hidden>
+                <button type="button" class="btn color-custom formbox7 head6 rounded2" id="custom_file">Choose File</button>
+                <span style="vertical-align: bottom; margin-left: 2px;" id="custom_label">(No file chosen)</span>
+                <img src="" class= "img8" id="preview" style="display: none;">
+                <div class="locate3">
+                    <button class="btn color-custom formbox8 head5 rounded2" style="margin-right: 5px;" onclick="history.go(-1)" style="display: inline-block;">Cancle</button>
+                    <button class="btn color-custom formbox8 head5 rounded2" type="button" style="display: inline-block;" onclick="post()">Done</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+    window.addEventListener('load', (event) => {
+        renew()
+    });
+    const realfile = document.getElementById("real_file");
+    const customfile = document.getElementById("custom_file");
+    const customlabel = document.getElementById("custom_label");
+    const preview = document.getElementById("preview")
+
+    customfile.addEventListener("click", function () {
+        realfile.click();
+    });
+
+    realfile.addEventListener("change", function () {
+        const file = this.files[0];
+        if (realfile.value) {
+            customlabel.innerHTML = realfile.value.match(
+                /[\/\\]([\w\d\s\.\-\(\)]+)$/
+            )[1];
+            const reader = new FileReader();
+            reader.addEventListener('load', function() {
+                preview.setAttribute("src", this.result);
+            })
+
+            reader.readAsDataURL(file);
+
+            preview.style.display = "block"
+        } 
+        
+        else {
+            customlabel.innerHTML = "(No file chosen)";
+            preview.style.display = null;
+        }
+    });
+
+
+
+</script>
+{% endblock %}
