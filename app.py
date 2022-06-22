@@ -613,3 +613,4 @@ def baht(value):
 
 
 app.add_template_filter(baht)
+ 
