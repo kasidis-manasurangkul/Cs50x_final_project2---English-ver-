@@ -20,7 +20,7 @@ In addition, besides renewing insurance, this website also has a role to show co
 - Create new user
 - Notifiy agent for new user's online renewal
 
-#####To Do:
+##### To Do:
 - Be able to import new data from Excel or csv to database directly
 - Notify users when it's time for renewing thier insurance via Line
 - Design new agent side's UI to be easy to use
@@ -32,7 +32,7 @@ In addition, besides renewing insurance, this website also has a role to show co
 - Pip 22.0.4
 - SQLite
 
-##Setup
+## Setup
 
 ##Database Scheme
 ```sh
