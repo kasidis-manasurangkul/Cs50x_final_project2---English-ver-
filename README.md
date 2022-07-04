@@ -1,4 +1,4 @@
-# Motor Insurance Renewal Online Website
+# Motor Insurance Renewal Website
 Introduction: [here](https://www.youtube.com/watch?v=oIk2hTPxFqs "here")
 
 A multitude of smaller motor insurance agents have adopted the inefficient practice of individually contacting and asking customers to renew their insurance. As one can imagine this process does not scale well at all and limits the company’s growth potential. As this is clearly a problem that would create a lot of cost and inefficiency within a company and its operations, I have thus deemed it a worthy problem to tackle
@@ -34,7 +34,7 @@ Apart from merely automating the insurance renewal process this website is also 
 
 ## Setup
 
-##Database Scheme
+## Database Scheme
 ```sh
 CREATE TABLE "admins" (
 	"id"	INTEGER NOT NULL,
