@@ -38,8 +38,9 @@ Apart from merely automating the insurance renewal process this website is also 
 - Download project
 - Run command `pip install -r requirements.txt`
 - Run `flask run`
-- Open website, login as admin and create user account in insertation page (for registering as admin, you have to do it via SQLite IDE only)
-**Log in page is used for both admin and user
+- Open a website, login as admin and create a user account in the insertion page (for registering as admin, you have to do it via SQLite IDE only)
+**Login page is used for both admins and users
+
 ## Database Scheme
 ```sh
 CREATE TABLE "admins" (
