@@ -1,5 +1,5 @@
 # Motor Insurance Renewal Website
-Introduction: [here](https://www.youtube.com/watch?v=oIk2hTPxFqs "here")
+Project Introduction video: [here](https://www.youtube.com/watch?v=oIk2hTPxFqs "here")
 
 A multitude of smaller motor insurance agents have adopted the inefficient practice of individually contacting and asking customers to renew their insurance. As one can imagine this process does not scale well at all and limits the company’s growth potential. As this is clearly a problem that would create a lot of cost and inefficiency within a company and its operations, I have thus deemed it a worthy problem to tackle
  
@@ -24,16 +24,22 @@ Apart from merely automating the insurance renewal process this website is also 
 - The ability to import data from Excel or csv to the database directly
 - Notifying users about their renewals via line
 - Better UI
+- Adding admin page
 
 ## Specification
-- Python 3.9
-- Flask 1.1.2
-- Flask-Session 0.4.0
+- Python 3
 - Pip 22.0.4
 - SQLite
+- Test on Chrome browser
 
 ## Setup
-
+- Install Python 3 and Pip
+- Download any SQLite IDE
+- Download project
+- Run command `pip install -r requirements.txt`
+- Run `flask run`
+- Open website, login as admin and create user account in insertation page (for registering as admin, you have to do it via SQLite IDE only)
+**Log in page is used for both admin and user
 ## Database Scheme
 ```sh
 CREATE TABLE "admins" (
