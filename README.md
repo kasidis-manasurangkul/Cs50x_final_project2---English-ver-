@@ -1,24 +1,24 @@
 # Motor Insurance Renewal Website
-Project Introduction video: [here](https://www.youtube.com/watch?v=oIk2hTPxFqs "here")
+Project Introduction video: [here](https://youtu.be/YWv3ntbvtUY "here")
 
-A multitude of smaller motor insurance agents have adopted the inefficient practice of individually contacting and asking customers to renew their insurance. As one can imagine this process does not scale well at all and limits the company’s growth potential. As this is clearly a problem that would create a lot of cost and inefficiency within a company and its operations, I have thus deemed it a worthy problem to tackle
+A multitude of smaller motor insurance agents have adopted the inefficient practice of individually contacting and asking customers to renew their insurance. As one can imagine this process does not scale well for the smaller motor insurance agents and limits the company’s growth potential. As this is clearly a problem that would create a lot of cost and inefficiency within a company and its operations, I have thus deemed it a worthy problem to tackle
  
-This website acts as an intermediary between the customers and the insurance agents in order to automate the process  of insurance renewal. The website will notify and ask the customers to choose whether or not they would like to renew their insurance. If they so happen to choose to renew their insurance the website will direct them to the payment page in order to complete the transaction. As the transaction is completed the insurance agents using the website’s service will be notified of the renewal.
+This website acts as an intermediary between the customers and the insurance agents in order to automate the process  of insurance policy renewal. The website will notify and ask the customers to choose whether or not they would like to renew their insurance. If they so happen to choose to renew their insurance policy, the website will direct them to the payment page in order to complete the transaction. As the transaction is completed, the insurance agents using the website’s service will be notified of the renewal.
  
-Apart from merely automating the insurance renewal process this website is also capable of collecting and displaying customer information such as the list of vehicles the customers have under the agent’s insurance and the customer’s renewal history. The customers will also be able access these quality of life functions.
+Apart from merely automating the insurance renewal process, this website is also capable of collecting and displaying customer information such as the list of vehicles that the customers have under the agent’s insurance list and the customer’s renewal history. The customers will also be able access these quality of life functions.
 
 ## Features
 ##### Customer side:
-- Renewing multiple insurance contracts in a single transaction
-- Displays active insurance contracts
+- Renewing multiple insurance types in a single transaction
+- Displays active insurance policies
 - Transaction history
 - Edit personal information e.g. username, password and e-mail
 
 ##### Agent side:
 - Edit contract information e.g. user, vehicle and insurance information
-- Inserting new information e.g. new contracted vehicles and insurance renewals
+- Inserting new information e.g. new contracted vehicles and insurance policy renewals
 - Creating new users
-- Contract renewal notifications
+- Policy renewal notifications
 
 ##### To Do:
 - The ability to import data from Excel or csv to the database directly
