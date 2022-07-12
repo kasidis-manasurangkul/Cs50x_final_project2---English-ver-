@@ -1,11 +1,9 @@
 from asyncio.windows_events import NULL
 from bdb import effective
-#from crypt import methods
 from os import SEEK_CUR
 from unittest import result
 from flask import Flask, redirect, render_template, request, session, jsonify, make_response
 from flask_session import Session
-# from flask_login import login_required, LoginManager
 from werkzeug.security import check_password_hash, generate_password_hash
 from werkzeug.utils import secure_filename
 import sqlite3
@@ -46,7 +44,6 @@ def index():
                          (str(session["user_id"]),)).fetchall()
     return render_template("user_main.html", username=username, cars=cars)
 
-
 @app.route("/login", methods=["GET", "POST"])
 def login():
     """Log user in"""
@@ -73,7 +70,6 @@ def login():
     else:
         return render_template("login.html")
 
-
 @app.route("/logout")
 def logout():
     """Log user out"""
@@ -83,7 +79,6 @@ def logout():
 
     # Redirect user to login form
     return redirect("/")
-
 
 @app.route("/user_detail", methods=["GET", "POST"])
 @app.route("/user_detail/<action>", methods=["GET", "POST"])
@@ -608,8 +603,9 @@ def error(massage):
 
 def baht(value):
     """Format value as baht"""
-    value = int(value)
-    return format(value, ",") + " ฿"
+    if value != '':
+        value = int(value)
+        return format(value, ",") + " ฿"
 
 
 app.add_template_filter(baht)
